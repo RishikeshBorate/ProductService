@@ -10,6 +10,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @SpringBootApplication
 public class ProductServiceApplication implements CommandLineRunner {
 
@@ -32,7 +36,7 @@ public class ProductServiceApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        Category category = new Category() ;
+       /* Category category = new Category() ;
         category.setName("Apple Devices");
         Category savedCategory = categoryRepository.save(category) ;
 
@@ -61,5 +65,22 @@ public class ProductServiceApplication implements CommandLineRunner {
         productRepository.save(product1);
         productRepository.save(product2) ;
         // System.out.println(product1);
+        */
+
+        Optional<Category> categoryOptinal = categoryRepository.findById(UUID.fromString("ebda9b7b-a5df-449e-bc59-978d5b183716")) ;
+       // List<Product> products =productRepository.getByCategory(category) ;
+
+        /*for(Product product : products){
+            System.out.println(product.getTitle());
+        }*/
+        Category category = categoryOptinal.get() ;
+        //System.out.println(category.getName());
+
+        List<Product> products = category.getProductList() ;
+
+        for(Product product : products){
+            System.out.println(product.getTitle());
+        }
+
     }
 }

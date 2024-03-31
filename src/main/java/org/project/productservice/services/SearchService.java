@@ -4,6 +4,7 @@ import org.project.productservice.Dtos.GenericProductDto;
 import org.project.productservice.Dtos.SearchRequestDto;
 import org.project.productservice.models.Product;
 import org.project.productservice.repositories.ProductRepository;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,9 +20,11 @@ public class SearchService {
         this.productRepository = productRepository ;
     }
 
-    public List<GenericProductDto> searchProducts(String query){
+    public List<GenericProductDto> searchProducts(String query , int pageNumber , int pageSize){
+        PageRequest pageRequest = PageRequest.of(pageNumber , pageSize) ;
+
         List<Product> products =
-                productRepository.findAllByTitleContainingIgnoreCase(query) ;
+                productRepository.findAllByTitleContainingIgnoreCase(query , pageRequest) ;
 
         List<GenericProductDto> genericProductDtos = new ArrayList<>() ;
 

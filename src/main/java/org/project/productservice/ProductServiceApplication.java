@@ -36,17 +36,17 @@ public class ProductServiceApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-       /* Category category = new Category() ;
-        category.setName("Apple Devices");
-        Category savedCategory = categoryRepository.save(category) ;
+        /*Category category1 = new Category() ;
+        category1.setName("Apple Devices");
+        Category savedCategory1 = categoryRepository.save(category1) ;
 
         Price price1  = new Price() ;
         price1.setCurrency("INR");
-        price1.setValue(150000);
+        price1.setValue(150000L);
        // Price savedPrice = priceRepository.save(price1) ;
 
         Product product1 = new Product() ;
-        product1.setCategory(savedCategory);
+        product1.setCategory(savedCategory1);
         product1.setDescription("Best iphone ever");
         product1.setTitle("iPhone15");
         product1.setPrice(price1);
@@ -54,33 +54,63 @@ public class ProductServiceApplication implements CommandLineRunner {
 
         Price price2  = new Price() ;
         price2.setCurrency("USD");
-        price2.setValue(50000);
+        price2.setValue(50000L);
 
         Product product2 = new Product() ;
-        product2.setCategory(savedCategory);
+        product2.setCategory(savedCategory1);
         product2.setDescription("Best iphone ever");
-        product2.setTitle("iPhone15");
+        product2.setTitle("iPhone15 Pro");
         product2.setPrice(price2);
+
+        Price price3  = new Price() ;
+        price3.setCurrency("INR");
+        price3.setValue(85000L);
+
+        Product product3 = new Product() ;
+        product3.setCategory(savedCategory1);
+        product3.setDescription("Best iphone ever");
+        product3.setTitle("iPhone12 Pro");
+        product3.setPrice(price3);
+
+
+        Category category2 = new Category() ;
+        category2.setName("Mac");
+        Category savedCategory2 = categoryRepository.save(category2) ;
+
+
+        Price price4  = new Price() ;
+        price4.setCurrency("USD");
+        price4.setValue(2500000L);
+
+        Product product4 = new Product() ;
+        product4.setCategory(savedCategory2);
+        product4.setDescription("Fastest Mac");
+        product4.setTitle("Macbook Air 15");
+        product4.setPrice(price4);
 
         productRepository.save(product1);
         productRepository.save(product2) ;
+        productRepository.save(product3) ;
+        productRepository.save(product4) ;
+
+        /*
         // System.out.println(product1);
-        */
 
-        Optional<Category> categoryOptinal = categoryRepository.findById(UUID.fromString("ebda9b7b-a5df-449e-bc59-978d5b183716")) ;
+
+        //Optional<Category> categoryOptinal = categoryRepository.findById(UUID.fromString("ebda9b7b-a5df-449e-bc59-978d5b183716")) ;
        // List<Product> products =productRepository.getByCategory(category) ;
-
-        /*for(Product product : products){
-            System.out.println(product.getTitle());
-        }*/
-        Category category = categoryOptinal.get() ;
-        //System.out.println(category.getName());
-
-        List<Product> products = category.getProductList() ;
 
         for(Product product : products){
             System.out.println(product.getTitle());
         }
+       // Category category = categoryOptinal.get() ;
+        //System.out.println(category.getName());
 
+       // List<Product> products = category.getProductList() ;
+
+        //for(Product product : products){
+        //    System.out.println(product.getTitle());
+        //}
+       */
     }
 }

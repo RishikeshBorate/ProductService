@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Price extends BaseModel{
-    private int value ;
+    private Long value ;
     private String currency ;
 }

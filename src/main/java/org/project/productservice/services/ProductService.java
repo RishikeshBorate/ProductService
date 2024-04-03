@@ -2,8 +2,11 @@ package org.project.productservice.services;
 
 import org.project.productservice.Dtos.GenericProductDto;
 import org.project.productservice.exceptions.ProductNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+
 
 public interface ProductService {
     GenericProductDto getProductById(Long id) throws ProductNotFoundException;
